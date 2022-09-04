@@ -9,7 +9,7 @@ export function Footer(){
                 Created By A.Boyadzhiev CMStormPolt
             </Text>
             <Button colorScheme="whatsapp" rightIcon={<ArrowRightIcon />} size="xs">
-                <Link isExternal href="https://github.com/CMStormPolt/movie-db-service" textTransform="none">
+                <Link isExternal href="https://github.com/CMStormPolt/movie-db-vite" textTransform="none">
                     Check the repo
                 </Link >
             </Button>
