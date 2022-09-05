@@ -23,7 +23,7 @@
       "routes/*": ["routes/*"],
       "types/*": ["types/*"],
       "apollo/*": ["apollo/*"],
-  },
+    },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

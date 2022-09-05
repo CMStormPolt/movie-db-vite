@@ -1,33 +1,42 @@
 import { useQuery, gql } from '@apollo/client'
 import { Flex, Heading, Spinner, useToast } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { Page, MovieCard } from 'components'
 
-const QUERY_ALL_MOVIES = gql`
-    query getAllMovies {
-        movies {
+const QUERY_LATEST_MOVIES = gql`
+    query getMovies($input: SearchForMoviesInput) {
+        movies(input: $input) {
             _id
             name
             year
             isInTheaters
-            genres,
+            genres
             posterUrl
-        }
     }
+}
 `
 
 export function Home() {
-    const { data, loading, error } = useQuery(QUERY_ALL_MOVIES)
-
+    const { data, loading, error } = useQuery(QUERY_LATEST_MOVIES, {variables: {
+        input: {
+            sortByDate: 'desc',
+            limit: 6
+        }
+    }})
+    
     const toast = useToast()
-    if(error) { 
-        toast({
-            title: 'Could not load movies',
-            description: error.message,
-            status: 'error',
-            duration: 4000,
-            isClosable: true,
-        }) 
-    }
+
+    useEffect(()=>{
+        if(error) { 
+            toast({
+                title: 'Could not load movies',
+                description: error.message,
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            }) 
+        }
+    },[error])
 
     return (
         <Page>
