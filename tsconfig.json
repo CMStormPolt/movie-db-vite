@@ -23,6 +23,7 @@
       "routes/*": ["routes/*"],
       "types/*": ["types/*"],
       "apollo/*": ["apollo/*"],
+      "utils/*": ["utils/*"],
     },
   },
   "include": ["src"],

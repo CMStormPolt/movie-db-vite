@@ -10,7 +10,8 @@ export default defineConfig({
       "pages": '/src/pages',
       "routes": '/src/routes',
       "types": '/src/types',
-      "apollo": '/src/apollo'
+      "apollo": '/src/apollo',
+      "utils": '/src/utils'
     },
   },
 

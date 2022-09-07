@@ -17,10 +17,10 @@ export function MovieCard(props: MovieCardProps){
             <Flex>
                 <Poster posterUrl={posterUrl}/>
                 <Box>
-                    <Text>
-                        Title:
-                        <Text as="span" color="dodgerblue"> {name}</Text>
-                    </Text>
+                    <Flex>
+                        <Text>Title:</Text>
+                        <Text color="dodgerblue" ml="1"> {name}</Text>
+                    </Flex>
                     <Text>
                         Year: 
                         <Text as="span" color="dodgerblue"> {year}</Text>

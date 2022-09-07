@@ -23,7 +23,7 @@ export function Home() {
             limit: 6
         }
     }})
-    
+
     const toast = useToast()
 
     useEffect(()=>{
@@ -45,7 +45,7 @@ export function Home() {
                 {loading && (<Spinner size="xl"/>)}
                 {data && data.movies.map((movie)=>{
                     return (
-                        <MovieCard movie={movie}/>
+                        <MovieCard movie={movie} key={movie._id}/>
                     )
                 })}
             </Flex>
