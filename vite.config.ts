@@ -11,7 +11,8 @@ export default defineConfig({
       "routes": '/src/routes',
       "types": '/src/types',
       "apollo": '/src/apollo',
-      "utils": '/src/utils'
+      "utils": '/src/utils',
+      "api": '/src/api'
     },
   },
 

@@ -24,6 +24,7 @@
       "types/*": ["types/*"],
       "apollo/*": ["apollo/*"],
       "utils/*": ["utils/*"],
+      "api/*": ["api/*"],
     },
   },
   "include": ["src"],

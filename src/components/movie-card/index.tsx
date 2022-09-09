@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
-import { Movie, MovieGenres } from 'types'
+import { Movie, MovieGenres, Poster } from 'types'
 import { ReactNode } from 'react'
 
 interface MovieCardProps {
@@ -7,7 +7,7 @@ interface MovieCardProps {
 }
 
 export function MovieCard(props: MovieCardProps){
-    const { posterUrl, name, year, genres } = props.movie
+    const { posters, name, year, genres } = props.movie
     const genresStrings = genres.map((genre)=>{
         return MovieGenres[genre].toLowerCase()
     }).join(', ')
@@ -15,7 +15,7 @@ export function MovieCard(props: MovieCardProps){
     return (
         <Box w="470px" border="1px" borderRadius="md" m="4" p="2">
             <Flex>
-                <Poster posterUrl={posterUrl}/>
+                <MainPoster posters={posters}/>
                 <Box>
                     <Flex>
                         <Text>Title:</Text>
@@ -35,10 +35,11 @@ export function MovieCard(props: MovieCardProps){
     )
 }
 
-function Poster({posterUrl}: {posterUrl: string}){
-    if(posterUrl){
-        return <Image src={posterUrl}  boxSize='200px' alt="No poster yet" mr="4"/>
+function MainPoster({posters}: {posters: [Poster]}){
+    if(posters.length){
+        const poster = posters[0]
+        return <Image src={poster.url}  width='200px' height="300px" alt="movie poster" mr="4"/>
     } else {
-        return <Box w="200px" h="200px" border="1px" textAlign="center" mr="4">No Poster Yet</Box>
+        return <Box w="200px" h="300px" border="1px" textAlign="center" mr="4">No Poster Yet</Box>
     }
 }

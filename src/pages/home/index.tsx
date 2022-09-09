@@ -11,7 +11,12 @@ const QUERY_LATEST_MOVIES = gql`
             year
             isInTheaters
             genres
-            posterUrl
+            posters {
+                sourceId
+                url
+                deleteHash
+                isMain
+            }
     }
 }
 `
@@ -20,7 +25,7 @@ export function Home() {
     const { data, loading, error } = useQuery(QUERY_LATEST_MOVIES, {variables: {
         input: {
             sortByDate: 'desc',
-            limit: 6
+            limit: 3
         }
     }})
 

@@ -6,7 +6,7 @@ export interface Movie {
     isInTheaters: boolean,
     genres: [MovieGenres],
     stars: [MovieActor]
-    posterUrl: string
+    posters: [Poster]
 }
 
 export enum MovieGenres {
@@ -19,4 +19,11 @@ export enum MovieGenres {
 export interface MovieActor {
     _id: string,
     name: string
+}
+
+export interface Poster {
+    sourceId: string,
+    url: string,
+    deleteHash: string,
+    isMain?: Boolean
 }
